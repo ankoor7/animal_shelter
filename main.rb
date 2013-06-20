@@ -5,7 +5,7 @@ require_relative 'client'
 require_relative 'animal'
 require_relative 'shelter'
 
-st_mungos = Shelter.new
+st_mungos = Shelter.new clients: {}, animals: {}
 
 kid1 = Entity.new
 kid2 = Entity.new
