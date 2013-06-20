@@ -13,7 +13,7 @@ class Animal < Entity
   end
 
   def to_s
-    "#{name}, a #{gender} #{breed} who likes #{toys}"
+    "#{name}, a #{gender} #{breed}. Favourite toys are #{toys.join(', ')}"
   end
 
 end

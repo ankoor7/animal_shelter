@@ -2,7 +2,7 @@ class Client < Entity
   attr_accessor :kids, :pets
 
   def new
-    @kids = []
+    @kids = {}
     @pets = {}
   end
 
@@ -13,7 +13,7 @@ class Client < Entity
   end
 
   def to_s
-    "#{name} has #{pets} pets."
+    "#{name} who owns #{pets.keys.empty? ? 'no pets' : pets.keys.join(', ') }."
   end
 
 end
