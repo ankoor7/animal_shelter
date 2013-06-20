@@ -34,15 +34,17 @@ end
   end
 
  def abandon
-     puts "Thank you for choosing to send your pet to a safe home. "
-    puts "What is the animal's name?"
-    name = input
-    puts "What breed is the animal?"
-    breed = input
-    puts "What sex is the animal?"
-    gender = input
-    puts "How old is the animal?"
-    age = input
+     puts "Thank you for choosing to abandon your pet to a safe home. "
+     puts "Which client are you? #{@clients.keys.join(', ')}?"
+     arse = input
+     puts "You have the following pets:"
+     @clients[arse].pets.keys.join(', ')
+     puts "Which animal do you loathe?"
+     binding.pry
+
+     name = input
+     @animals << clients[arse].pets[name].clone
+     @clients[arse].pets.delete[name]
     #st_mungos.animals.merge!{name => Animal.new age: age, name: name, breed: breed, toys: [], gender: gender.downcase.to_sym}
 end
 

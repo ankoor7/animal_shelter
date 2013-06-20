@@ -5,6 +5,9 @@ require_relative 'client'
 require_relative 'animal'
 require_relative 'shelter'
 
+def input
+  gets.chomp
+end
 
 kid1 = Entity.new name: 'Billy', gender: :male, age: 10
 kid2 = Entity.new name: 'Bob', gender: :male, age: 11
@@ -30,7 +33,6 @@ def menu
   choice = gets.chomp.to_i
 end
 
-#binding.pry
 
 # Work flow
 puts "Welcome to #{st_mungos.name}."
@@ -47,7 +49,20 @@ while choice != 5
   when 3
      st_mungos.adopt
   when 4
-    st_mungos.abandon
+#    st_mungos.abandon
+
+     puts "Thank you for choosing to abandon your pet to a safe home. "
+     puts "Which client are you? #{st_mungos.clients.keys.join(', ')}?"
+     arse = input
+     puts "You have the following pets:"
+     st_mungos.clients[arse].pets.keys.join(', ')
+     puts "Which animal do you loathe?"
+     binding.pry
+
+     name = input
+     st_mungos.animals << st_mungos.clients[arse].pets[name].clone
+     st_mungos.clients[arse].pets.delete[name]
+
   end
 
   gets
