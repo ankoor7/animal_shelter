@@ -30,8 +30,7 @@ st_mungos = Shelter.new name: "St Mungo's Animal Shelter", clients: {}, animals:
 
 # Menu
 def menu
-  puts "Please choose from the following options:"
-  puts "1) See the animals you can adopt. 2) List the current clients. 3) Adopt an animal 4) Give-up on an animal 5) Exit"
+  puts "\n\nPlease choose from the following options:\n1) See the animals you can adopt. \n2) List the current clients. \n3) Adopt an animal \n4) Give-up on an animal \n\n5) Exit"
   choice = gets.chomp.to_i
 end
 
