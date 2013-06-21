@@ -12,8 +12,8 @@ class Animal < Entity
    super
   end
 
-  def to_s
-    "#{name}, a #{gender} #{breed}. Favourite toys are #{toys.join(', ')}"
-  end
+ # def to_s
+ #   "#{name}, a #{gender} #{breed}. Favourite toys are #{toys.join(', ')}"
+ # end
 
 end

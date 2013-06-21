@@ -14,22 +14,27 @@ end
   def list_animals
     puts "Current residents of St Mungo's Animal Shelter are,"
     @animals.each { |k,v|
-    puts v
+    puts "#{k}, a #{@animals[k].breed} who likes #{@animals[k].toys.join(', ')}."
   }
   end
 
   def list_clients
     puts "Current clients of St Mungo's Animal Shelter are,"
     @clients.each { |k,v|
-    puts v
+ #   puts v
+    puts "#{k}, a #{@clients[k].age} year old who owns #{ @clients[k].pets.keys.empty? ? 'no pets' : @clients[k].pets.keys.join(', ') }"
    }
   end
 
   def adopt
+    list_clients
+    puts "Which client are you? #{@clients.keys.join(', ')}?"
+    angel = input
     puts "Thank you for choosing to adopt a pet!"
     list_animals
     puts "Which animal do you want to adopt?"
     adopt = input
+    @clients[angel].pets.merge!(animals.select {|k,v| k == adopt})
     @animals.delete(adopt) { |el| "Please try again, #{el} was not found" }
   end
 
@@ -38,14 +43,13 @@ end
      puts "Which client are you? #{@clients.keys.join(', ')}?"
      arse = input
      puts "You have the following pets:"
-     @clients[arse].pets.keys.join(', ')
+     @clients[arse].list_pets
      puts "Which animal do you loathe?"
-     binding.pry
-
+     #binding.pry
      name = input
-     @animals << clients[arse].pets[name].clone
-     @clients[arse].pets.delete[name]
-    #st_mungos.animals.merge!{name => Animal.new age: age, name: name, breed: breed, toys: [], gender: gender.downcase.to_sym}
+ #    binding.pry
+     @animals.merge!(clients[arse].pets.select {|k,v| k == name} )
+     @clients[arse].pets.delete(name) { |el| "Please try again, #{el} was not found" }
 end
 
 end

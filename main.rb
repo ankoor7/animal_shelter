@@ -26,6 +26,8 @@ st_mungos = Shelter.new name: "St Mungo's Animal Shelter", clients: {}, animals:
   st_mungos.clients[person.name] = person
 }
 
+#binding.pry
+
 # Menu
 def menu
   puts "Please choose from the following options:"
@@ -49,25 +51,10 @@ while choice != 5
   when 3
      st_mungos.adopt
   when 4
-#    st_mungos.abandon
-
-     puts "Thank you for choosing to abandon your pet to a safe home. "
-     puts "Which client are you? #{st_mungos.clients.keys.join(', ')}?"
-     arse = input
-     puts "You have the following pets:"
-     st_mungos.clients[arse].pets.keys.join(', ')
-     puts "Which animal do you loathe?"
-     binding.pry
-
-     name = input
-     st_mungos.animals << st_mungos.clients[arse].pets[name].clone
-     st_mungos.clients[arse].pets.delete[name]
-
+    st_mungos.abandon
   end
 
   gets
-
-  puts `clear`
 
   choice = menu
 end
